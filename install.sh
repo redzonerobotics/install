@@ -1,0 +1,37 @@
+#!/bin/bash
+
+{
+echo "$(whoami)"
+
+[ "$UID" -eq 0 ] || exec sudo "$0" "$@"
+
+# Remove any previous installation is present
+sudo rm /usr/local/bin/nats-server
+sudo rm /etc/systemd/system/nats-server.service
+sudo rm /etc/systemd/system/multi-user.target.wants/nats-server.service
+} &> /dev/null
+
+wget https://github.com/nats-io/nats-server/releases/download/v2.1.8/nats-server-v2.1.8-arm64.deb
+dpkg -i nats-server-v2.1.8-arm64.deb
+rm nats-server-v2.1.8-arm64.deb
+# Nats will now be installed into '/usr/local/bin/nats-server'
+
+echo "[Unit]
+Description=NATS Server service.
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/nats-server
+RestartSec=2
+Restart=always
+
+User=1000
+
+[Install]
+WantedBy=multi-user.target" > /etc/systemd/system/nats-server.service
+
+systemctl enable nats-server
+systemctl start nats-server
+
