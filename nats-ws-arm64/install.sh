@@ -12,12 +12,11 @@ sudo rm /etc/systemd/system/nats-server.service
 sudo rm /etc/systemd/system/multi-user.target.wants/nats-server.service
 } &> /dev/null
 
-wget https://github.com/nats-io/nats-server/releases/download/v2.1.8/nats-server-v2.1.8-arm64.deb
-dpkg -i nats-server-v2.1.8-arm64.deb
-rm nats-server-v2.1.8-arm64.deb
-# Nats will now be installed into '/usr/local/bin/nats-server'
+wget https://raw.githubusercontent.com/redzonerobotics/install/master/nats-ws-arm64/nats-server
+cp nats-server /usr/local/bin/nats-server
+rm nats-server
 
-wget https://raw.githubusercontent.com/redzonerobotics/install/master/nats/nats.conf
+wget https://raw.githubusercontent.com/redzonerobotics/install/master/nats-ws-arm64/nats.conf
 cp nats.conf /usr/share/nats/nats.conf
 rm nats.conf
 
