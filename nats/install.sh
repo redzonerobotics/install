@@ -38,5 +38,5 @@ User=1000
 WantedBy=multi-user.target" > /etc/systemd/system/nats-server.service
 
 systemctl enable nats-server
-systemctl start nats-server
+systemctl restart nats-server
 
