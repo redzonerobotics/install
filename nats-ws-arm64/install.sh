@@ -6,6 +6,8 @@ echo "$(whoami)"
 [ "$UID" -eq 0 ] || exec sudo "$0" "$@"
 
 # Remove any previous installation is present
+systemctl stop nats-server
+systemctl disable nats-server
 sudo rm /usr/share/nats/nats.conf
 sudo rm /usr/local/bin/nats-server
 sudo rm /etc/systemd/system/nats-server.service
@@ -17,6 +19,7 @@ cp nats-server /usr/local/bin/nats-server
 rm nats-server
 
 wget https://raw.githubusercontent.com/redzonerobotics/install/master/nats-ws-arm64/nats.conf
+mkdir -p /usr/share/nats
 cp nats.conf /usr/share/nats/nats.conf
 rm nats.conf
 
