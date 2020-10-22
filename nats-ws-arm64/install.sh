@@ -15,6 +15,7 @@ sudo rm /etc/systemd/system/multi-user.target.wants/nats-server.service
 } &> /dev/null
 
 wget https://raw.githubusercontent.com/redzonerobotics/install/master/nats-ws-arm64/nats-server
+chmod +x nats-server
 cp nats-server /usr/local/bin/nats-server
 rm nats-server
 
