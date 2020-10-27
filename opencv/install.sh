@@ -1,6 +1,6 @@
 cuda=$1
 
-wget -O https://raw.githubusercontent.com/redzonerobotics/install/master/opencv/Makefile
+wget https://raw.githubusercontent.com/redzonerobotics/install/master/opencv/Makefile
 
 if [[ $cuda == "cuda" ]]; then
     echo "make install_cuda ..."
