@@ -194,6 +194,9 @@ install_raspi_zero: deps download build_raspi_zero sudo_install clean verify
 # Do everything with cuda.
 install_cuda: deps download sudo_pre_install_clean build_cuda sudo_install clean verify verify_cuda
 
+# Do everything with cuda and python.
+install_cuda_py: deps download sudo_pre_install_clean build_cuda_py sudo_install clean verify verify_cuda
+
 # Do everything with openvino.
 install_openvino: deps download download_dldt sudo_pre_install_clean build_dldt sudo_install_dldt build_openvino sudo_install clean verify_openvino
 

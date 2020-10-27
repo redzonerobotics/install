@@ -11,8 +11,8 @@ elif [[ $cuda == "cuda_py" ]]; then
     echo "make install_cuda_py ..."
     make install_cuda_py > opencv_build_cuda_py.log
 else 
-    echo "make build ..."
-    make build > opencv_build.log
+    echo "make install ..."
+    make install > opencv_build.log
 fi
 
 rm Makefile
