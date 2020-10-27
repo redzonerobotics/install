@@ -1,3 +1,5 @@
+#!/bin/bash
+
 cuda=$1
 
 wget https://raw.githubusercontent.com/redzonerobotics/install/master/opencv/Makefile
