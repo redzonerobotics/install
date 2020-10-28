@@ -6,13 +6,13 @@ wget https://raw.githubusercontent.com/redzonerobotics/install/master/opencv/Mak
 
 if [[ $cuda == "cuda" ]]; then
     echo "make install_cuda ..."
-    make install_cuda > opencv_build_cuda.log
+    make install_cuda
 elif [[ $cuda == "cuda_py" ]]; then
     echo "make install_cuda_py ..."
-    make install_cuda_py > opencv_build_cuda_py.log
+    make install_cuda_py
 else 
     echo "make install ..."
-    make install > opencv_build.log
+    make install
 fi
 
 rm Makefile
