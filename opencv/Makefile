@@ -183,25 +183,25 @@ sudo_pre_install_clean:
 	sudo rm -rf /usr/local/include/opencv*
 
 # Do everything.
-install: deps download sudo_pre_install_clean build sudo_install clean verify
+install: deps download sudo_pre_install_clean build sudo_install clean
 
 # Do everything on Raspbian.
-install_raspi: deps download build_raspi sudo_install clean verify
+install_raspi: deps download build_raspi sudo_install clean
 
 # Do everything on the raspberry pi zero.
-install_raspi_zero: deps download build_raspi_zero sudo_install clean verify
+install_raspi_zero: deps download build_raspi_zero sudo_install clean
 
 # Do everything with cuda.
-install_cuda: deps download sudo_pre_install_clean build_cuda sudo_install clean verify verify_cuda
+install_cuda: deps download sudo_pre_install_clean build_cuda sudo_install clean
 
 # Do everything with cuda and python.
-install_cuda_py: deps download sudo_pre_install_clean build_cuda_py sudo_install clean verify verify_cuda
+install_cuda_py: deps download sudo_pre_install_clean build_cuda_py sudo_install clean
 
 # Do everything with openvino.
-install_openvino: deps download download_dldt sudo_pre_install_clean build_dldt sudo_install_dldt build_openvino sudo_install clean verify_openvino
+install_openvino: deps download download_dldt sudo_pre_install_clean build_dldt sudo_install_dldt build_openvino sudo_install clean
 
 # Do everything with openvino and cuda.
-install_all: deps download download_dldt sudo_pre_install_clean build_dldt sudo_install_dldt build_all sudo_install clean verify_openvino verify_cuda
+install_all: deps download download_dldt sudo_pre_install_clean build_dldt sudo_install_dldt build_all sudo_install clean
 
 # Install system wide.
 sudo_install:
@@ -216,18 +216,6 @@ sudo_install_dldt:
 	sudo $(MAKE) install
 	sudo ldconfig
 	cd -
-
-# Build a minimal Go app to confirm gocv works.
-verify:
-	go run ./cmd/version/main.go
-
-# Build a minimal Go app to confirm gocv cuda works.
-verify_cuda:
-	go run ./cmd/cuda/main.go
-
-# Build a minimal Go app to confirm gocv openvino works.
-verify_openvino:
-	go run -tags openvino ./cmd/version/main.go
 
 # Runs tests.
 # This assumes env.sh was already sourced.
