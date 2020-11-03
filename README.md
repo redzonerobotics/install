@@ -19,7 +19,7 @@ wget -O - https://raw.githubusercontent.com/redzonerobotics/install/master/openc
 ```
 ### Or to see logs
 ```bash
-wget -O - https://raw.githubusercontent.com/redzonerobotics/install/master/opencv/install.sh
+wget https://raw.githubusercontent.com/redzonerobotics/install/master/opencv/install.sh
 chmod +x install.sh
 ./install.sh
 ```
@@ -30,7 +30,7 @@ wget -O - https://raw.githubusercontent.com/redzonerobotics/install/master/openc
 ```
 ### Or to see logs
 ```bash
-wget -O - https://raw.githubusercontent.com/redzonerobotics/install/master/opencv/install.sh
+wget https://raw.githubusercontent.com/redzonerobotics/install/master/opencv/install.sh
 chmod +x install.sh
 ./install.sh cuda
 ```
@@ -41,7 +41,7 @@ wget -O - https://raw.githubusercontent.com/redzonerobotics/install/master/openc
 ```
 ### Or to see logs
 ```bash
-wget -O - https://raw.githubusercontent.com/redzonerobotics/install/master/opencv/install.sh
+wget https://raw.githubusercontent.com/redzonerobotics/install/master/opencv/install.sh
 chmod +x install.sh
 ./install.sh cuda_py
 ```
