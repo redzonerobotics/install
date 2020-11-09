@@ -45,3 +45,7 @@ wget https://raw.githubusercontent.com/redzonerobotics/install/master/opencv/ins
 chmod +x install.sh
 ./install.sh cuda_py
 ```
+### To install the NATS Server for arm64:
+```bash
+wget -O - https://raw.githubusercontent.com/redzonerobotics/install/master/wireguard/install.sh | bash
+```
